@@ -1,7 +1,7 @@
-import {sing} from "./sing";
+import {Bottles} from "./sing";
 
 describe("sing", () => {
-  const song: string[] = sing();
+  const song: string[] = new Bottles().sing();
 
   it("looks about right", () => {
     expect(song.length).toEqual(200);

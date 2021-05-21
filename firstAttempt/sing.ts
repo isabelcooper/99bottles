@@ -1,25 +1,39 @@
-export const sing = function () {
-  const arr = []
-  let numberOfBottles = 99
-
-  while (numberOfBottles > 0) {
-    const plurality = getPlural(numberOfBottles)
-    arr.push(`${numberOfBottles} bottle${plurality} of beer on the wall, ${numberOfBottles} bottle${plurality} of beer.`)
-
-    const numberOfBottlesLeft = numberOfBottles - 1
-    if (numberOfBottlesLeft > 0) {
-      const pluralityLeft = getPlural(numberOfBottlesLeft)
-      arr.push(`Take one down and pass it around, ${numberOfBottlesLeft || 'no more'} bottle${pluralityLeft} of beer on the wall.`)
-    }
-    numberOfBottles--
+export class Bottles {
+  public sing() : string[] {
+    return Bottles.generateNumberArray(99, 0)
+      .map(i => Bottles.verse(i)).flat()
   }
-  arr.push(`Take one down and pass it around, no more bottles of beer on the wall.`)
-  arr.push(`No more bottles of beer on the wall, no more bottles of beer.`)
-  arr.push('Go to the store and buy some more, 99 bottles of beer on the wall.')
 
-  return arr
-};
+  private static verse(numberOfBottles: number) : string[]{
+    const lines: string[] = []
+    if (numberOfBottles > 0) {
+      const plurality = Bottles.getPlural(numberOfBottles)
+      lines.push(`${numberOfBottles} bottle${plurality} of beer on the wall, ${numberOfBottles} bottle${plurality} of beer.`)
 
-function getPlural(numberOfBottles: number): string {
-  return numberOfBottles > 1 ? 's' : '';
+      const numberOfBottlesLeft = numberOfBottles - 1
+      if (numberOfBottlesLeft > 0) {
+        const pluralityLeft = Bottles.getPlural(numberOfBottlesLeft)
+        lines.push(`Take one down and pass it around, ${numberOfBottlesLeft || 'no more'} bottle${pluralityLeft} of beer on the wall.`)
+      }
+    } else {
+      lines.push(`Take one down and pass it around, no more bottles of beer on the wall.`)
+      lines.push(`No more bottles of beer on the wall, no more bottles of beer.`)
+      lines.push('Go to the store and buy some more, 99 bottles of beer on the wall.')
+    }
+
+    return lines
+  };
+
+  private static generateNumberArray(max: number, min: number): number[] {
+    const numbers = [];
+    for (let n = max; n >= min; n--) {
+      numbers.push(n);
+    }
+    return numbers;
+  }
+
+  private static getPlural(number: number): string {
+    return number > 1 ? 's' : '';
+  }
+
 }
