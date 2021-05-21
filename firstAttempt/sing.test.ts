@@ -1,6 +1,6 @@
 import {sing} from "./sing";
 
-describe("Sample test", () => {
+describe("sing", () => {
   const song: string[] = sing();
 
   it("looks about right", () => {
