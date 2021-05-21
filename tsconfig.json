@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "noImplicitAny": true,
+    "noEmit": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "lib": ["dom", "esnext"],
+    "skipLibCheck": true,
+    "types": ["node", "jest"]
+  },
+  "include": ["**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"],
+
+}
