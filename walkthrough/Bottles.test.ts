@@ -29,13 +29,22 @@ describe('Bottles', () => {
     expect(new BottlesSM().verse(2)).toBe(expected);
   });
 
-   test('verse 1', () => {
-     const expected =
-       '1 bottle of beer on the wall, ' +
-       '1 bottle of beer.\n' +
-       'Take it down and pass it around, ' +
-       'no more bottles of beer on the wall.\n';
-     expect(new BottlesSM().verse(1)).toBe(expected);
-   });
+  test('verse 1', () => {
+    const expected =
+      '1 bottle of beer on the wall, ' +
+      '1 bottle of beer.\n' +
+      'Take it down and pass it around, ' +
+      'no more bottles of beer on the wall.\n';
+    expect(new BottlesSM().verse(1)).toBe(expected);
+  });
+
+  test('verse 0', () => {
+    const expected =
+      'No more bottles of beer on the wall, ' +
+      'no more bottles of beer.\n' +
+      'Go to the store and buy some more, ' +
+      '99 bottles of beer on the wall.\n';
+    expect(new BottlesSM().verse(0)).toBe(expected);
+  });
 
 });
