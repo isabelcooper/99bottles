@@ -16,8 +16,17 @@ describe('Bottles', () => {
       `${randomVerseNumber3to99} bottles of beer on the wall, ` +
       `${randomVerseNumber3to99} bottles of beer.\n` +
       'Take one down and pass it around, ' +
-      `${randomVerseNumber3to99 -1} bottles of beer on the wall.\n`;
+      `${randomVerseNumber3to99 - 1} bottles of beer on the wall.\n`;
     expect(new BottlesSM().verse(randomVerseNumber3to99)).toBe(expected);
+  });
+
+  test('verse 2', () => {
+    const expected =
+      '2 bottles of beer on the wall, ' +
+      '2 bottles of beer.\n' +
+      'Take one down and pass it around, ' +
+      '1 bottle of beer on the wall.\n';
+    expect(new BottlesSM().verse(2)).toBe(expected);
   });
 
 });
