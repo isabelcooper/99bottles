@@ -33,6 +33,18 @@ export class BottlesSM {
   }
 
   verses(start: number, end: number) {
-  return this.verse(start) + '\n' + this.verse(end);
+    return BottlesSM.generateNumberArray(start, end)
+      .map(i => this.verse(i))
+      .join('\n');
   }
+
+
+  private static generateNumberArray(max: number, min: number): number[] {
+    const numbers = [];
+    for (let n = max; n >= min; n--) {
+      numbers.push(n);
+    }
+    return numbers;
+  }
+
 }
