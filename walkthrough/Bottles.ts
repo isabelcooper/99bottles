@@ -31,4 +31,8 @@ export class BottlesSM {
         );
     }
   }
+
+  verses(start: number, end: number) {
+  return this.verse(start) + '\n' + this.verse(end);
+  }
 }
